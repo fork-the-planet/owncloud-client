@@ -175,7 +175,8 @@ void AccountFoldersController::buildMenuActions()
         connect(_chooseSync, &QAction::triggered, this, &AccountFoldersController::onChooseSync);
     }
 
-    _removeSync = new QAction(tr("Remove folder sync connection"), this);
+    QString removeSyncString = tr("Remove %1 sync connection").arg(CommonStrings::space());
+    _removeSync = new QAction(removeSyncString, this);
     _removeSync->setObjectName("removeFolderSyncAction");
     itemActions.push_back(_removeSync);
     connect(_removeSync, &QAction::triggered, this, &AccountFoldersController::onRemoveSync);
@@ -244,7 +245,7 @@ void AccountFoldersController::updateActions()
     _removeSync->setEnabled(_currentFolder);
 
     if (_enableVfs) {
-        _enableVfs->setText(_currentFolder && _currentFolder->virtualFilesEnabled() ? tr("Disable virtual file support") : tr("Enable virtual file support"));
+        _enableVfs->setText(_currentFolder && _currentFolder->virtualFilesEnabled() ? tr("Deactivate virtual files") : tr("Activate virtual files"));
         // we can't block existence of the action when the folder path doesn't support vfs, so disable it here just in case
         // todo: DC-219 hopefully this check can go away
         QString pathError = Vfs::pathSupportDetail(_currentFolder->path(), Vfs::WindowsCfApi);
