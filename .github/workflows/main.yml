@@ -33,19 +33,23 @@ jobs:
               os: windows-latest
               container:
               useSonarCloud: ${{ github.event_name != 'pull_request' }}
+              testOptions: --options '[Compile]Jobs=1'
             # TODO: align the target with the name
             - name: macos-clang-arm64
               target: macos-clang-arm64
               os: macos-latest
               container:
               useSonarCloud:
+              testOptions:
             - name: linux-gcc-x86_64
               target: linux-64-gcc
               os: ubuntu-latest
               container: owncloudci/appimage-build:sles15-amd64
               useSonarCloud:
+              testOptions:
     name: ${{ matrix.name }}
-
+    #let the other builds run even if one fails
+    #continue-on-error: true
     runs-on: ${{ matrix.os }}
 
     env:
@@ -58,21 +62,21 @@ jobs:
     steps:
     - name: Check out full source code for tooling
       if: ${{ matrix.useSonarCloud || matrix.name  == 'linux-gcc-x86_64' }}
-      uses: actions/checkout@v6
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       with:
         fetch-depth: 0
 
     - name: Check out latest commit
       if: ${{ !matrix.useSonarCloud && matrix.name  != 'linux-gcc-x86_64' }}
-      uses: actions/checkout@v6
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
-    - uses: actions/setup-python@v6
+    - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
       if: matrix.name  == 'windows-cl-x86_64'
       with:
         python-version: '3.12'
 
     - name: Restore cache
-      uses: actions/cache@v5
+      uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
       with:
         path: ~/cache
         key: ${{ runner.os }}-${{ matrix.target }}
@@ -160,7 +164,7 @@ jobs:
 
     - name: Run tests
       run: |
-        & "${env:GITHUB_WORKSPACE}/.github/workflows/.craft.ps1" -c --no-cache --test owncloud/owncloud-client
+        & "${env:GITHUB_WORKSPACE}/.github/workflows/.craft.ps1" -c --no-cache --test ${{ matrix.testOptions }} owncloud/owncloud-client
 
     - name: Package
       run: |
@@ -177,7 +181,7 @@ jobs:
         Copy-Item "${env:GITHUB_WORKSPACE}/.craft.shelf" "${env:GITHUB_WORKSPACE}/binaries/"
 
     - name: Upload artifacts
-      uses: actions/upload-artifact@v7
+      uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
       with:
         name: ${{ matrix.name }}
         path: ${{ github.workspace }}/binaries/*

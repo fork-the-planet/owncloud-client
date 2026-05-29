@@ -147,7 +147,7 @@ File synchronisation desktop utility.</translation>
     <message>
         <location filename="../src/gui/commonstrings.cpp" line="57"/>
         <source>space</source>
-        <translation type="unfinished"/>
+        <translation>space</translation>
     </message>
     <message>
         <location filename="../src/gui/commonstrings.cpp" line="63"/>
@@ -157,7 +157,7 @@ File synchronisation desktop utility.</translation>
     <message>
         <location filename="../src/gui/commonstrings.cpp" line="65"/>
         <source>spaces</source>
-        <translation type="unfinished"/>
+        <translation>spaces</translation>
     </message>
     <message>
         <location filename="../src/gui/commonstrings.cpp" line="71"/>
@@ -167,7 +167,7 @@ File synchronisation desktop utility.</translation>
     <message>
         <location filename="../src/gui/commonstrings.cpp" line="73"/>
         <source>Space</source>
-        <translation type="unfinished"/>
+        <translation>Space</translation>
     </message>
 </context>
 <context>
@@ -195,47 +195,6 @@ File synchronisation desktop utility.</translation>
     </message>
 </context>
 <context>
-    <name>FolderDelegate</name>
-    <message>
-        <location filename="../src/gui/qml/FolderDelegate.qml" line="30"/>
-        <source>Folder Sync</source>
-        <translation>Folder Sync</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/qml/FolderDelegate.qml" line="234"/>
-        <source>Add Space</source>
-        <translation>Add Space</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/qml/FolderDelegate.qml" line="234"/>
-        <source>Add Folder</source>
-        <translation>Add Folder</translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/gui/qml/FolderDelegate.qml" line="259"/>
-        <source>You are synchronizing %1 out of %n folder(s)</source>
-        <translation><numerusform>You are synchronising %1 out of %n folder</numerusform><numerusform>You are synchronising %1 out of %n folders</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/gui/qml/FolderDelegate.qml" line="259"/>
-        <source>You are synchronizing %1 out of %n space(s)</source>
-        <translation><numerusform>You are synchronising %1 out of %n space</numerusform><numerusform>You are synchronising %1 out of %n spaces</numerusform></translation>
-    </message>
-</context>
-<context>
-    <name>FolderError</name>
-    <message>
-        <location filename="../src/gui/qml/FolderError.qml" line="58"/>
-        <source>Show less</source>
-        <translation>Show less</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/qml/FolderError.qml" line="77"/>
-        <source>Show more</source>
-        <translation>Show more</translation>
-    </message>
-</context>
-<context>
     <name>FolderItem</name>
     <message>
         <location filename="../src/gui/FoldersGui/folderitem.cpp" line="122"/>
@@ -256,6 +215,11 @@ File synchronisation desktop utility.</translation>
         <translation>Sync paused</translation>
     </message>
     <message>
+        <location filename="../src/gui/FoldersGui/folderitem.cpp" line="141"/>
+        <source>Synced</source>
+        <translation>Synced</translation>
+    </message>
+    <message>
         <location filename="../src/gui/FoldersGui/folderitem.cpp" line="147"/>
         <source>Sync failed</source>
         <translation>Sync failed</translation>
@@ -268,70 +232,24 @@ File synchronisation desktop utility.</translation>
     <message>
         <location filename="../src/gui/FoldersGui/folderitem.cpp" line="158"/>
         <source>Syncing %1 of %2 (%3 %</source>
-        <translation type="unfinished"/>
+        <translation>Syncing %1 of %2 (%3 %</translation>
     </message>
     <message>
         <location filename="../src/gui/FoldersGui/folderitem.cpp" line="162"/>
         <source>, ⬇️ %1/s</source>
-        <translation type="unfinished"/>
+        <translation>, ⬇️ %1/s</translation>
     </message>
     <message>
         <location filename="../src/gui/FoldersGui/folderitem.cpp" line="166"/>
         <source>, ⬆️ %1/s</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>FolderStatus</name>
-    <message>
-        <location filename="../src/gui/folderstatusmodel.cpp" line="99"/>
-        <source>&apos;%1&apos;</source>
-        <translation>&apos;%1&apos;</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/folderstatusmodel.cpp" line="120"/>
-        <source>Syncing %1</source>
-        <extracomment>Example text: &quot;Syncing 'foo.txt', 'bar.txt'&quot;</extracomment>
-        <translation>Syncing %1</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/folderstatusmodel.cpp" line="122"/>
-        <source>, ⬇️ %1/s</source>
-        <translation>, ⬇️ %1/s</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/folderstatusmodel.cpp" line="125"/>
-        <source>, ⬆️ %1/s</source>
         <translation>, ⬆️ %1/s</translation>
     </message>
     <message>
-        <location filename="../src/gui/folderstatusmodel.cpp" line="129"/>
-        <source>%1 %2 (%3 of %4)</source>
-        <extracomment>Example text: &quot;uploading foobar.png (2MB of 2MB)&quot;</extracomment>
-        <translation>%1 %2 (%3 of %4)</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/folderstatusmodel.cpp" line="134"/>
-        <source>%1 %2</source>
-        <extracomment>Example text: &quot;uploading foobar.png&quot;</extracomment>
-        <translation>%1 %2</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/folderstatusmodel.cpp" line="151"/>
-        <source>%5 left, %1 of %2, file %3 of %4</source>
-        <extracomment>Example text: &quot;5 minutes left, 12 MB of 345 MB, file 6 of 7&quot;</extracomment>
-        <translation>%5 left, %1 of %2, file %3 of %4</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/folderstatusmodel.cpp" line="159"/>
-        <source>%1 of %2, file %3 of %4</source>
-        <extracomment>Example text: &quot;12 MB of 345 MB, file 6 of 7&quot;</extracomment>
-        <translation>%1 of %2, file %3 of %4</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/folderstatusmodel.cpp" line="163"/>
-        <source>file %1 of %2</source>
-        <translation>file %1 of %2</translation>
+        <location filename="../src/gui/FoldersGui/folderitem.cpp" line="209"/>
+        <source>%1, sync status: %2</source>
+        <extracomment>Accessible text, read out by a screen reader.</extracomment>
+        <translation>%1, sync status: %2</translation>
+        <extra-The>first argument is the displayed name of the folder.</extra-The>
     </message>
 </context>
 <context>
@@ -450,33 +368,34 @@ File synchronisation desktop utility.</translation>
 <context>
     <name>OCC::AccountFoldersController</name>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="374"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="370"/>
         <source>Choose what to sync</source>
         <translation>Choose what to sync</translation>
     </message>
     <message>
         <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="139"/>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="240"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="236"/>
         <source>Sync now</source>
-        <translation type="unfinished"/>
+        <translation>Sync now</translation>
     </message>
     <message>
         <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="149"/>
         <source>Manage subfolder sync</source>
-        <translation type="unfinished"/>
+        <translation>Manage subfolder sync</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="178"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="174"/>
         <source>Remove %1 sync</source>
-        <translation type="unfinished"/>
+        <extracomment>This shows as 'Remove folder sync' or 'Remove Space sync'</extracomment>
+        <translation>Remove %1 sync</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="200"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="196"/>
         <source>Disable virtual file support?</source>
         <translation>Disable virtual file support?</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="201"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="197"/>
         <source>This action will disable virtual file support. As a consequence contents of folders that are currently marked as 'available online only' will be downloaded.
 
 The only advantage of disabling virtual file support is that the selective sync feature will become available again.
@@ -489,78 +408,78 @@ The only advantage of disabling virtual file support is that the selective sync 
 This action will abort any currently running synchronisation.</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="210"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="206"/>
         <source>Disable support</source>
         <translation>Disable support</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="240"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="236"/>
         <source>Restart sync</source>
         <translation>Restart sync</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="242"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="238"/>
         <source>Resume sync</source>
         <translation>Resume sync</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="242"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="238"/>
         <source>Pause sync</source>
         <translation>Pause sync</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="251"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="247"/>
         <source>Deactivate virtual files</source>
-        <translation type="unfinished"/>
+        <translation>Deactivate virtual files</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="251"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="247"/>
         <source>Activate virtual files</source>
-        <translation type="unfinished"/>
+        <translation>Activate virtual files</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="287"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="283"/>
         <source>Internet connection is metered</source>
         <translation>Internet connection is metered</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="288"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="284"/>
         <source>Synchronization is paused because the Internet connection is a metered connection&lt;p&gt;Do you really want to force a Synchronization now?</source>
         <translation>Synchronisation is paused because the Internet connection is a metered connection&lt;p&gt;Do you really want to force a Synchronisation now?</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="311"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="307"/>
         <source>Sync Running</source>
         <translation>Sync Running</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="311"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="307"/>
         <source>The sync operation is running.&lt;br/&gt;Do you want to stop it?</source>
         <translation>The sync operation is running.&lt;br/&gt;Do you want to stop it?</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="320"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="316"/>
         <source>Sync paused by user</source>
         <translation>Sync paused by user</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="338"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="334"/>
         <source>Confirm Folder Sync Connection Removal</source>
         <translation>Confirm Folder Sync Connection Removal</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="339"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="335"/>
         <source>&lt;p&gt;Do you really want to stop syncing the folder &lt;i&gt;%1&lt;/i&gt;?&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; This will &lt;b&gt;not&lt;/b&gt; delete any files.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Do you really want to stop syncing the folder &lt;i&gt;%1&lt;/i&gt;?&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; This will &lt;b&gt;not&lt;/b&gt; delete any files.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="343"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="339"/>
         <source>Remove Folder Sync Connection</source>
         <translation>Remove Folder Sync Connection</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="212"/>
-        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="344"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="208"/>
+        <location filename="../src/gui/FoldersGui/accountfolderscontroller.cpp" line="340"/>
         <source>Cancel</source>
         <translation>Cancel</translation>
     </message>
@@ -568,29 +487,41 @@ This action will abort any currently running synchronisation.</translation>
 <context>
     <name>OCC::AccountFoldersView</name>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfoldersview.cpp" line="43"/>
+        <location filename="../src/gui/FoldersGui/accountfoldersview.cpp" line="48"/>
         <source>Sync options menu</source>
         <translation>Sync options menu</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfoldersview.cpp" line="51"/>
+        <location filename="../src/gui/FoldersGui/accountfoldersview.cpp" line="57"/>
         <source>%1 sync</source>
-        <translation type="unfinished"/>
+        <extracomment>This shows as 'Folder sync' or 'Space sync'</extracomment>
+        <translation>%1 sync</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfoldersview.cpp" line="60"/>
+        <location filename="../src/gui/FoldersGui/accountfoldersview.cpp" line="66"/>
         <source>Manage your synced %1.</source>
-        <translation type="unfinished"/>
+        <translation>Manage your synced %1.</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfoldersview.cpp" line="65"/>
+        <location filename="../src/gui/FoldersGui/accountfoldersview.cpp" line="72"/>
         <source>Add new %1 sync…</source>
-        <translation type="unfinished"/>
+        <extracomment>This shows as 'Add new folder sync…' or 'Add new Space sync…'</extracomment>
+        <translation>Add new %1 sync…</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/accountfoldersview.cpp" line="178"/>
+        <location filename="../src/gui/FoldersGui/accountfoldersview.cpp" line="83"/>
+        <source>%1 list view</source>
+        <translation>%1 list view</translation>
+    </message>
+    <message>
+        <location filename="../src/gui/FoldersGui/accountfoldersview.cpp" line="84"/>
+        <source>Navigate the %1 list using the up and down arrows</source>
+        <translation>Navigate the %1 list using the up and down arrows</translation>
+    </message>
+    <message>
+        <location filename="../src/gui/FoldersGui/accountfoldersview.cpp" line="250"/>
         <source>%1 out of %2 %3 are synchronized</source>
-        <translation type="unfinished"/>
+        <translation>%1 out of %2 %3 are synchronised</translation>
     </message>
 </context>
 <context>
@@ -602,246 +533,6 @@ This action will abort any currently running synchronisation.</translation>
     </message>
 </context>
 <context>
-    <name>OCC::AccountSettings</name>
-    <message>
-        <location filename="../src/gui/accountsettings.ui" line="14"/>
-        <source>Form</source>
-        <translation>Form</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.ui" line="73"/>
-        <source>Manage Account</source>
-        <translation>Manage Account</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.ui" line="109"/>
-        <source>Preparing the account</source>
-        <translation>Preparing the account</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.ui" line="137"/>
-        <source>Sync connections</source>
-        <translation>Sync connections</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="340"/>
-        <location filename="../src/gui/accountsettings.cpp" line="381"/>
-        <location filename="../src/gui/accountsettings.cpp" line="744"/>
-        <source>Cancel</source>
-        <translation>Cancel</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="513"/>
-        <source>Remove</source>
-        <translation>Remove</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="252"/>
-        <location filename="../src/gui/accountsettings.cpp" line="275"/>
-        <source>Choose what to sync</source>
-        <translation>Choose what to sync</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="210"/>
-        <source>Force sync now</source>
-        <translation>Force sync now</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="212"/>
-        <source>Restart sync</source>
-        <translation>Restart sync</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="159"/>
-        <source>Remove folder sync connection</source>
-        <translation>Remove folder sync connection</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="502"/>
-        <source>Account options menu</source>
-        <translation>Account options menu</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="505"/>
-        <source>Reconnect</source>
-        <translation>Reconnect</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="164"/>
-        <source>Sync options menu</source>
-        <translation>Sync options menu</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="170"/>
-        <source>Folder is not ready yet</source>
-        <translation>Folder is not ready yet</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="331"/>
-        <source>Confirm Folder Sync Connection Removal</source>
-        <translation>Confirm Folder Sync Connection Removal</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="338"/>
-        <source>Remove Folder Sync Connection</source>
-        <translation>Remove Folder Sync Connection</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="370"/>
-        <source>Disable virtual file support?</source>
-        <translation>Disable virtual file support?</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="371"/>
-        <source>This action will disable virtual file support. As a consequence contents of folders that are currently marked as 'available online only' will be downloaded.
-
-The only advantage of disabling virtual file support is that the selective sync feature will become available again.
-
-This action will abort any currently running synchronization.</source>
-        <translation>This action will disable virtual file support. As a consequence contents of folders that are currently marked as &apos;available online only&apos; will be downloaded.
-
-The only advantage of disabling virtual file support is that the selective sync feature will become available again.
-
-This action will abort any currently running synchronisation.</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="379"/>
-        <source>Disable support</source>
-        <translation>Disable support</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="445"/>
-        <source>Sync Running</source>
-        <translation>Sync Running</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="445"/>
-        <source>The sync operation is running.&lt;br/&gt;Do you want to stop it?</source>
-        <translation>The sync operation is running.&lt;br/&gt;Do you want to stop it?</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="245"/>
-        <source>Disable virtual file support</source>
-        <translation>Disable virtual file support</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="231"/>
-        <source>Enable virtual file support</source>
-        <translation>Enable virtual file support</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="462"/>
-        <source>Sync paused by user</source>
-        <translation>Sync paused by user</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="477"/>
-        <source>Internet connection is metered</source>
-        <translation>Internet connection is metered</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="478"/>
-        <source>Synchronization is paused because the Internet connection is a metered connection&lt;p&gt;Do you really want to force a Synchronization now?</source>
-        <translation>Synchronisation is paused because the Internet connection is a metered connection&lt;p&gt;Do you really want to force a Synchronisation now?</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="504"/>
-        <location filename="../src/gui/accountsettings.cpp" line="508"/>
-        <source>Log in</source>
-        <translation>Log in</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="541"/>
-        <source>Connected</source>
-        <translation>Connected</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="550"/>
-        <source>Server is temporarily unavailable</source>
-        <translation>Server is temporarily unavailable</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="553"/>
-        <source>Server is currently in maintenance mode</source>
-        <translation>Server is currently in maintenance mode</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="556"/>
-        <source>Signed out</source>
-        <translation>Signed out</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="559"/>
-        <source>Updating credentials…</source>
-        <translation>Updating credentials…</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="568"/>
-        <source>Connecting…</source>
-        <translation>Connecting…</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="564"/>
-        <source>Captive portal prevents connections to the server.</source>
-        <translation>Captive portal prevents connections to the server.</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="566"/>
-        <source>Sync is paused due to metered internet connection</source>
-        <translation>Sync is paused due to a metered Internet connection</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="572"/>
-        <source>Server configuration error</source>
-        <translation>Server configuration error</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="578"/>
-        <source>Disconnected</source>
-        <translation>Disconnected</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="737"/>
-        <source>Confirm Account Removal</source>
-        <translation>Confirm Account Removal</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="738"/>
-        <source>&lt;p&gt;Do you really want to remove the connection to the account &lt;i&gt;%1&lt;/i&gt;?&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; This will &lt;b&gt;not&lt;/b&gt; delete any files.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Do you really want to remove the connection to the account &lt;i&gt;%1&lt;/i&gt;?&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; This will &lt;b&gt;not&lt;/b&gt; delete any files.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="742"/>
-        <source>Remove connection</source>
-        <translation>Remove connection</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="508"/>
-        <source>Log out</source>
-        <translation>Log out</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="218"/>
-        <source>Resume sync</source>
-        <translation>Resume sync</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="218"/>
-        <source>Pause sync</source>
-        <translation>Pause sync</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="332"/>
-        <source>&lt;p&gt;Do you really want to stop syncing the folder &lt;i&gt;%1&lt;/i&gt;?&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; This will &lt;b&gt;not&lt;/b&gt; delete any files.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Do you really want to stop syncing the folder &lt;i&gt;%1&lt;/i&gt;?&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; This will &lt;b&gt;not&lt;/b&gt; delete any files.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/accountsettings.cpp" line="538"/>
-        <source>The server version %1 is unsupported! Proceed at your own risk.</source>
-        <translation>The server version %1 is unsupported! Proceed at your own risk.</translation>
-    </message>
-</context>
-<context>
     <name>OCC::AccountView</name>
     <message>
         <location filename="../src/gui/accountview.ui" line="14"/>
@@ -849,118 +540,118 @@ This action will abort any currently running synchronisation.</translation>
         <translation>Form</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.ui" line="73"/>
+        <location filename="../src/gui/accountview.ui" line="76"/>
         <source>Manage Account</source>
         <translation>Manage Account</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.ui" line="109"/>
+        <location filename="../src/gui/accountview.ui" line="112"/>
         <source>Preparing the account</source>
         <translation>Preparing the account</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.ui" line="137"/>
+        <location filename="../src/gui/accountview.ui" line="140"/>
         <source>Sync connections</source>
         <translation>Sync connections</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="384"/>
+        <location filename="../src/gui/accountview.cpp" line="386"/>
         <source>Cancel</source>
         <translation>Cancel</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="224"/>
+        <location filename="../src/gui/accountview.cpp" line="219"/>
         <source>Account options menu</source>
         <translation>Account options menu</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="226"/>
-        <location filename="../src/gui/accountview.cpp" line="230"/>
+        <location filename="../src/gui/accountview.cpp" line="221"/>
+        <location filename="../src/gui/accountview.cpp" line="225"/>
         <source>Log in</source>
         <translation>Log in</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="227"/>
+        <location filename="../src/gui/accountview.cpp" line="222"/>
         <source>Reconnect</source>
         <translation>Reconnect</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="230"/>
+        <location filename="../src/gui/accountview.cpp" line="225"/>
         <source>Log out</source>
         <translation>Log out</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="235"/>
+        <location filename="../src/gui/accountview.cpp" line="230"/>
         <source>Remove</source>
         <translation>Remove</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="254"/>
+        <location filename="../src/gui/accountview.cpp" line="249"/>
         <source>The server version %1 is unsupported! Proceed at your own risk.</source>
         <translation>The server version %1 is unsupported! Proceed at your own risk.</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="257"/>
+        <location filename="../src/gui/accountview.cpp" line="252"/>
         <source>Connected</source>
         <translation>Connected</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="261"/>
+        <location filename="../src/gui/accountview.cpp" line="256"/>
         <source>Server is temporarily unavailable</source>
         <translation>Server is temporarily unavailable</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="264"/>
+        <location filename="../src/gui/accountview.cpp" line="259"/>
         <source>Server is currently in maintenance mode</source>
         <translation>Server is currently in maintenance mode</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="267"/>
+        <location filename="../src/gui/accountview.cpp" line="262"/>
         <source>Signed out</source>
         <translation>Signed out</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="270"/>
+        <location filename="../src/gui/accountview.cpp" line="265"/>
         <source>Updating credentials…</source>
         <translation>Updating credentials…</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="279"/>
+        <location filename="../src/gui/accountview.cpp" line="274"/>
         <source>Connecting…</source>
         <translation>Connecting…</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="275"/>
+        <location filename="../src/gui/accountview.cpp" line="270"/>
         <source>Captive portal prevents connections to the server.</source>
         <translation>Captive portal prevents connections to the server.</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="277"/>
+        <location filename="../src/gui/accountview.cpp" line="272"/>
         <source>Sync is paused due to metered internet connection</source>
         <translation>Sync is paused due to a metered Internet connection</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="283"/>
+        <location filename="../src/gui/accountview.cpp" line="278"/>
         <source>Server configuration error</source>
         <translation>Server configuration error</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="289"/>
+        <location filename="../src/gui/accountview.cpp" line="284"/>
         <source>Disconnected</source>
         <translation>Disconnected</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="376"/>
+        <location filename="../src/gui/accountview.cpp" line="378"/>
         <source>Confirm Account Removal</source>
         <translation>Confirm Account Removal</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="377"/>
+        <location filename="../src/gui/accountview.cpp" line="379"/>
         <source>&lt;p&gt;Do you really want to remove the connection to the account &lt;i&gt;%1&lt;/i&gt;?&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; This will &lt;b&gt;not&lt;/b&gt; delete any files.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Do you really want to remove the connection to the account &lt;i&gt;%1&lt;/i&gt;?&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; This will &lt;b&gt;not&lt;/b&gt; delete any files.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/gui/accountview.cpp" line="382"/>
+        <location filename="../src/gui/accountview.cpp" line="384"/>
         <source>Remove connection</source>
         <translation>Remove connection</translation>
     </message>
@@ -1108,6 +799,19 @@ The update will be performed in the background, and overwrite the current AppIma
         <location filename="../src/gui/newaccountwizard/authsuccesspagecontroller.cpp" line="64"/>
         <source>Additional logo defined by the organization</source>
         <translation>Additional logo defined by the organization</translation>
+    </message>
+</context>
+<context>
+    <name>OCC::ButtonDelegate</name>
+    <message>
+        <location filename="../src/gui/FoldersGui/buttondelegate.cpp" line="41"/>
+        <source>%1 options button</source>
+        <translation>%1 options button</translation>
+    </message>
+    <message>
+        <location filename="../src/gui/FoldersGui/buttondelegate.cpp" line="42"/>
+        <source>Menu button with %1 options. Use the space key to show the menu</source>
+        <translation>Menu button with %1 options. Use the space key to show the menu</translation>
     </message>
 </context>
 <context>
@@ -1402,101 +1106,106 @@ This means that the synchronisation client might not upload local changes immedi
         <source>There are unresolved conflicts.</source>
         <translation>There are unresolved conflicts.</translation>
     </message>
+    <message>
+        <location filename="../src/gui/FoldersGui/folderitemupdater.cpp" line="107"/>
+        <source>Sync error: %1</source>
+        <translation>Sync error: %1</translation>
+    </message>
 </context>
 <context>
     <name>OCC::FolderMan</name>
     <message>
-        <location filename="../src/gui/folderman.cpp" line="431"/>
+        <location filename="../src/gui/folderman.cpp" line="474"/>
         <source>Could not reset folder state</source>
         <translation>Could not reset folder state</translation>
     </message>
     <message>
-        <location filename="../src/gui/folderman.cpp" line="432"/>
+        <location filename="../src/gui/folderman.cpp" line="475"/>
         <source>An old sync journal &apos;%1&apos; was found, but could not be removed. Please make sure that no application is currently using it.</source>
         <translation>An old sync journal &apos;%1&apos; was found, but could not be removed. Please make sure that no application is currently using it.</translation>
     </message>
     <message>
-        <location filename="../src/gui/folderman.cpp" line="449"/>
+        <location filename="../src/gui/folderman.cpp" line="492"/>
         <source>Unsupported filesystem</source>
         <translation>Unsupported filesystem</translation>
     </message>
     <message>
-        <location filename="../src/gui/folderman.cpp" line="543"/>
+        <location filename="../src/gui/folderman.cpp" line="586"/>
         <source>Account disconnected or paused</source>
         <translation>Account disconnected or paused</translation>
     </message>
     <message>
-        <location filename="../src/gui/folderman.cpp" line="817"/>
+        <location filename="../src/gui/folderman.cpp" line="860"/>
         <source>User triggered force sync</source>
         <translation>User triggered force sync</translation>
     </message>
     <message>
-        <location filename="../src/gui/folderman.cpp" line="848"/>
+        <location filename="../src/gui/folderman.cpp" line="891"/>
         <source>Folder is about to be removed</source>
         <translation>Folder is about to be removed</translation>
     </message>
     <message>
-        <location filename="../src/gui/folderman.cpp" line="871"/>
+        <location filename="../src/gui/folderman.cpp" line="914"/>
         <source> (backup)</source>
         <translation> (backup)</translation>
     </message>
     <message>
-        <location filename="../src/gui/folderman.cpp" line="876"/>
+        <location filename="../src/gui/folderman.cpp" line="919"/>
         <source> (backup %1)</source>
         <translation> (backup %1)</translation>
     </message>
     <message>
-        <location filename="../src/gui/folderman.cpp" line="922"/>
+        <location filename="../src/gui/folderman.cpp" line="965"/>
         <source>The selected path is not a folder.</source>
         <translation>The selected path is not a folder.</translation>
     </message>
     <message>
-        <location filename="../src/gui/folderman.cpp" line="926"/>
+        <location filename="../src/gui/folderman.cpp" line="969"/>
         <source>The folder %1 is used in a folder sync connection.</source>
         <translation>The folder %1 is used in a folder sync connection.</translation>
     </message>
     <message>
-        <location filename="../src/gui/folderman.cpp" line="934"/>
+        <location filename="../src/gui/folderman.cpp" line="977"/>
         <source>Folder &apos;%1&apos; is already in use by application %2.</source>
         <translation>Folder &apos;%1&apos; is already in use by application %2.</translation>
     </message>
     <message>
-        <location filename="../src/gui/folderman.cpp" line="981"/>
+        <location filename="../src/gui/folderman.cpp" line="1024"/>
         <source>There is already a sync from the server to this local folder.</source>
         <translation>There is already a sync from the server to this local folder.</translation>
     </message>
     <message>
-        <location filename="../src/gui/folderman.cpp" line="984"/>
+        <location filename="../src/gui/folderman.cpp" line="1027"/>
         <source>The local folder %1 already contains a folder used in a folder sync connection.</source>
         <translation>The local folder %1 already contains a folder used in a folder sync connection.</translation>
     </message>
     <message>
-        <location filename="../src/gui/folderman.cpp" line="989"/>
+        <location filename="../src/gui/folderman.cpp" line="1032"/>
         <source>The local folder %1 is already contained in a folder used in a folder sync connection.</source>
         <translation>The local folder %1 is already contained in a folder used in a folder sync connection.</translation>
     </message>
     <message>
-        <location filename="../src/gui/folderman.cpp" line="1001"/>
+        <location filename="../src/gui/folderman.cpp" line="1044"/>
         <source>No valid folder selected.</source>
         <translation>No valid folder selected.</translation>
     </message>
     <message>
-        <location filename="../src/gui/folderman.cpp" line="1020"/>
+        <location filename="../src/gui/folderman.cpp" line="1063"/>
         <source>The selected path does not exist.</source>
         <translation>The selected path does not exist.</translation>
     </message>
     <message>
-        <location filename="../src/gui/folderman.cpp" line="1026"/>
+        <location filename="../src/gui/folderman.cpp" line="1069"/>
         <source>You have no permission to write to the selected folder.</source>
         <translation>You have no permission to write to the selected folder.</translation>
     </message>
     <message>
-        <location filename="../src/gui/folderman.cpp" line="947"/>
+        <location filename="../src/gui/folderman.cpp" line="990"/>
         <source>Folder &apos;%1&apos; is already in use by another account.</source>
         <translation>Folder &apos;%1&apos; is already in use by another account.</translation>
     </message>
     <message>
-        <location filename="../src/gui/folderman.cpp" line="449"/>
+        <location filename="../src/gui/folderman.cpp" line="492"/>
         <source>On macOS, only the Apple File System is supported.</source>
         <translation>On macOS, only the Apple File System is supported.</translation>
     </message>
@@ -1504,52 +1213,14 @@ This means that the synchronisation client might not upload local changes immedi
 <context>
     <name>OCC::FolderModelController</name>
     <message>
-        <location filename="../src/gui/FoldersGui/foldermodelcontroller.cpp" line="108"/>
-        <source>Folder options</source>
-        <translation>Folder options</translation>
+        <location filename="../src/gui/FoldersGui/foldermodelcontroller.cpp" line="110"/>
+        <source>%1 options</source>
+        <translation>%1 options</translation>
     </message>
     <message>
-        <location filename="../src/gui/FoldersGui/foldermodelcontroller.cpp" line="109"/>
-        <source>Menu button with folder options. Hit the space key to pop the folder options menu</source>
-        <translation>Menu button with folder options. Hit the space key to pop the folder options menu</translation>
-    </message>
-</context>
-<context>
-    <name>OCC::FolderStatusModel</name>
-    <message>
-        <location filename="../src/gui/folderstatusmodel.cpp" line="216"/>
-        <source>There are unresolved conflicts.</source>
-        <translation>There are unresolved conflicts.</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/folderstatusmodel.cpp" line="263"/>
-        <source>%1 of %2 used</source>
-        <translation>%1 of %2 used</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/folderstatusmodel.cpp" line="343"/>
-        <source>Checking for changes in remote &apos;%1&apos;</source>
-        <translation>Checking for changes in remote &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/folderstatusmodel.cpp" line="345"/>
-        <source>Checking for changes in local &apos;%1&apos;</source>
-        <translation>Checking for changes in local &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/folderstatusmodel.cpp" line="349"/>
-        <source>Reconciling changes</source>
-        <translation>Reconciling changes</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/folderstatusmodel.cpp" line="389"/>
-        <source>Queued</source>
-        <translation>Queued</translation>
-    </message>
-    <message>
-        <location filename="../src/gui/folderstatusmodel.cpp" line="227"/>
-        <source>Local folder: %1</source>
-        <translation>Local folder: %1</translation>
+        <location filename="../src/gui/FoldersGui/foldermodelcontroller.cpp" line="112"/>
+        <source>Menu button with %1 options. Use the space key to pop the %2 options menu</source>
+        <translation>Menu button with %1 options. Use the space key to pop the %2 options menu</translation>
     </message>
 </context>
 <context>
@@ -2077,22 +1748,22 @@ Note that using any logging command line options will override the settings.</tr
         <translation>Add account…</translation>
     </message>
     <message>
-        <location filename="../src/gui/newaccountwizard/newaccountwizardcontroller.cpp" line="63"/>
+        <location filename="../src/gui/newaccountwizard/newaccountwizardcontroller.cpp" line="65"/>
         <source>Back</source>
         <translation>Back</translation>
     </message>
     <message>
-        <location filename="../src/gui/newaccountwizard/newaccountwizardcontroller.cpp" line="64"/>
+        <location filename="../src/gui/newaccountwizard/newaccountwizardcontroller.cpp" line="66"/>
         <source>Advanced</source>
         <translation>Advanced</translation>
     </message>
     <message>
-        <location filename="../src/gui/newaccountwizard/newaccountwizardcontroller.cpp" line="208"/>
+        <location filename="../src/gui/newaccountwizard/newaccountwizardcontroller.cpp" line="210"/>
         <source>Sign in</source>
         <translation>Sign in</translation>
     </message>
     <message>
-        <location filename="../src/gui/newaccountwizard/newaccountwizardcontroller.cpp" line="211"/>
+        <location filename="../src/gui/newaccountwizard/newaccountwizardcontroller.cpp" line="213"/>
         <source>Open sign in again</source>
         <translation>Open sign in again</translation>
     </message>
@@ -2823,12 +2494,12 @@ Note that using any logging command line options will override the settings.</tr
 <context>
     <name>OCC::RequestAuthenticationController</name>
     <message>
-        <location filename="../src/gui/creds/requestauthenticationcontroller.cpp" line="100"/>
+        <location filename="../src/gui/creds/requestauthenticationcontroller.cpp" line="94"/>
         <source>IdP is unreachable. Contact your system administrator or try again later.</source>
         <translation>IdP is unreachable. Contact your system administrator or try again later.</translation>
     </message>
     <message>
-        <location filename="../src/gui/creds/requestauthenticationcontroller.cpp" line="111"/>
+        <location filename="../src/gui/creds/requestauthenticationcontroller.cpp" line="105"/>
         <source>Authentication failed.</source>
         <translation>Authentication failed.</translation>
     </message>
@@ -2951,22 +2622,22 @@ Note that using any logging command line options will override the settings.</tr
 <context>
     <name>OCC::SettingsDialog</name>
     <message>
-        <location filename="../src/gui/settingsdialog.cpp" line="99"/>
+        <location filename="../src/gui/settingsdialog.cpp" line="98"/>
         <source>Hide</source>
         <translation>Hide</translation>
     </message>
     <message>
-        <location filename="../src/gui/settingsdialog.cpp" line="108"/>
+        <location filename="../src/gui/settingsdialog.cpp" line="107"/>
         <source>Quit %1</source>
         <translation>Quit %1</translation>
     </message>
     <message>
-        <location filename="../src/gui/settingsdialog.cpp" line="109"/>
+        <location filename="../src/gui/settingsdialog.cpp" line="108"/>
         <source>Are you sure you want to quit %1?</source>
         <translation>Are you sure you want to quit %1?</translation>
     </message>
     <message>
-        <location filename="../src/gui/settingsdialog.cpp" line="135"/>
+        <location filename="../src/gui/settingsdialog.cpp" line="134"/>
         <source>%1 - %2</source>
         <translation>%1 - %2</translation>
     </message>
@@ -3509,7 +3180,7 @@ Note that using any logging command line options will override the settings.</tr
     </message>
     <message>
         <location filename="../src/gui/owncloudgui.cpp" line="240"/>
-        <location filename="../src/gui/owncloudgui.cpp" line="254"/>
+        <location filename="../src/gui/owncloudgui.cpp" line="255"/>
         <source>New account failure</source>
         <translation>New account failure</translation>
     </message>
@@ -3519,7 +3190,7 @@ Note that using any logging command line options will override the settings.</tr
         <translation>The information required to create a new account is incomplete. Please run the wizard again.</translation>
     </message>
     <message>
-        <location filename="../src/gui/owncloudgui.cpp" line="255"/>
+        <location filename="../src/gui/owncloudgui.cpp" line="256"/>
         <source>The account could not be created due to an error:
 %1
 Please check the server&apos;s availability then run the wizard again.</source>
@@ -3701,7 +3372,7 @@ Please check the server&apos;s availability then run the wizard again.</translat
         <translation>%1 %2</translation>
     </message>
     <message>
-        <location filename="../src/libsync/platform_win.cpp" line="111"/>
+        <location filename="../src/libsync/platform_win.cpp" line="116"/>
         <source>Shutting down %1</source>
         <translation>Shutting down %1</translation>
     </message>
@@ -3794,12 +3465,7 @@ Please check the server&apos;s availability then run the wizard again.</translat
         <translation>Deleted</translation>
     </message>
     <message>
-        <location filename="../src/libsync/progressdispatcher.cpp" line="47"/>
-        <source>%1 moved to %2</source>
-        <translation>%1 moved to %2</translation>
-    </message>
-    <message>
-        <location filename="../src/libsync/progressdispatcher.cpp" line="49"/>
+        <location filename="../src/libsync/progressdispatcher.cpp" line="52"/>
         <source>Ignored</source>
         <translation>Ignored</translation>
     </message>
@@ -3809,53 +3475,63 @@ Please check the server&apos;s availability then run the wizard again.</translat
         <translation>Server version downloaded, local copy was backed up as conflict file</translation>
     </message>
     <message>
-        <location filename="../src/libsync/progressdispatcher.cpp" line="51"/>
+        <location filename="../src/libsync/progressdispatcher.cpp" line="48"/>
+        <source>Renamed %1 to %2</source>
+        <translation>Renamed %1 to %2</translation>
+    </message>
+    <message>
+        <location filename="../src/libsync/progressdispatcher.cpp" line="50"/>
+        <source>Moved %1 to %2</source>
+        <translation>Moved %1 to %2</translation>
+    </message>
+    <message>
+        <location filename="../src/libsync/progressdispatcher.cpp" line="54"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../src/libsync/progressdispatcher.cpp" line="53"/>
+        <location filename="../src/libsync/progressdispatcher.cpp" line="56"/>
         <source>Updated local metadata</source>
         <translation>Updated local metadata</translation>
     </message>
     <message>
-        <location filename="../src/libsync/progressdispatcher.cpp" line="55"/>
-        <location filename="../src/libsync/progressdispatcher.cpp" line="57"/>
+        <location filename="../src/libsync/progressdispatcher.cpp" line="58"/>
+        <location filename="../src/libsync/progressdispatcher.cpp" line="60"/>
         <source>Unknown</source>
         <translation>Unknown</translation>
     </message>
     <message>
-        <location filename="../src/libsync/progressdispatcher.cpp" line="68"/>
+        <location filename="../src/libsync/progressdispatcher.cpp" line="71"/>
         <source>downloading</source>
         <translation>downloading</translation>
     </message>
     <message>
-        <location filename="../src/libsync/progressdispatcher.cpp" line="70"/>
+        <location filename="../src/libsync/progressdispatcher.cpp" line="73"/>
         <source>uploading</source>
         <translation>uploading</translation>
     </message>
     <message>
-        <location filename="../src/libsync/progressdispatcher.cpp" line="72"/>
+        <location filename="../src/libsync/progressdispatcher.cpp" line="75"/>
         <source>deleting</source>
         <translation>deleting</translation>
     </message>
     <message>
-        <location filename="../src/libsync/progressdispatcher.cpp" line="74"/>
+        <location filename="../src/libsync/progressdispatcher.cpp" line="77"/>
         <source>moving</source>
         <translation>moving</translation>
     </message>
     <message>
-        <location filename="../src/libsync/progressdispatcher.cpp" line="76"/>
+        <location filename="../src/libsync/progressdispatcher.cpp" line="79"/>
         <source>ignoring</source>
         <translation>ignoring</translation>
     </message>
     <message>
-        <location filename="../src/libsync/progressdispatcher.cpp" line="78"/>
+        <location filename="../src/libsync/progressdispatcher.cpp" line="81"/>
         <source>error</source>
         <translation>error</translation>
     </message>
     <message>
-        <location filename="../src/libsync/progressdispatcher.cpp" line="80"/>
+        <location filename="../src/libsync/progressdispatcher.cpp" line="83"/>
         <source>updating local metadata</source>
         <translation>updating local metadata</translation>
     </message>

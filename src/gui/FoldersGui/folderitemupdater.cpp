@@ -96,6 +96,7 @@ void FolderItemUpdater::onSyncStateChanged()
         for (const QString &error : std::as_const(errors)) {
             QIcon errorIcon = Resources::getCoreIcon("states/warning");
             QStandardItem *errorItem = new QStandardItem(errorIcon, error);
+            errorItem->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
 
             // just for testing to replace the normal error with something really long - will remove before merge
             /*      QString longError =
@@ -103,9 +104,13 @@ void FolderItemUpdater::onSyncStateChanged()
                we " "can't update a known total size using these progress values becausethey are never negative, to indicate a removal"; QStandardItem
                *errorItem = new QStandardItem(errorIcon, longError);
             */
+            QString accessibleError = tr("Sync error: %1").arg(error);
+            errorItem->setData(accessibleError, Qt::AccessibleTextRole);
 
-            errorItem->setData(error, Qt::AccessibleTextRole);
-            _item->appendRow(errorItem);
+            QStandardItem *emptyEditorItem = new QStandardItem();
+            emptyEditorItem->setFlags(Qt::NoItemFlags);
+
+            _item->appendRow({errorItem, emptyEditorItem});
         }
 
     } else if (status == SyncResult::SyncPrepare && _item->hasChildren()) {

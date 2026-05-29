@@ -13,6 +13,7 @@
  */
 
 #include "buttondelegate.h"
+#include "commonstrings.h"
 
 #include <QAbstractItemView>
 #include <QEvent>
@@ -37,9 +38,8 @@ ButtonDelegate::ButtonDelegate(const QString &text, QAbstractItemView *parent)
     _button->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     _button->setStyleSheet("QPushButton::menu-indicator{width:0px;}");
 
-    // I think this only needs to be set in the underlying item.
-    //_button->setAccessibleName("Folder options");
-    //_button->setAccessibleDescription("Menu button with folder options. Hit the space key to auto-pop the menu");
+    _button->setAccessibleName(tr("%1 options button").arg(CommonStrings::capSpace()));
+    _button->setAccessibleDescription(tr("Menu button with %1 options. Use the space key to show the menu").arg(CommonStrings::space()));
 }
 
 void ButtonDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -78,9 +78,8 @@ QSize ButtonDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelI
 
 QWidget *ButtonDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    Q_UNUSED(index);
     Q_UNUSED(option);
-
+    Q_UNUSED(index);
     if (_button->parentWidget() != parent)
         // the parent is actually the scroll area viewport. don't ask :D
         _button->setParent(parent);
@@ -111,7 +110,9 @@ void ButtonDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionVie
 bool ButtonDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     // implement the menu auto-pop when clicking the delegate directly
-    if (event->type() == QEvent::MouseButtonPress) {
+    // super important! we can't use MouseButtonPress or the menu doesn't pop when eg the tree is not already focused
+    // no idea why this is but release is the way to go, 100%
+    if (event->type() == QEvent::MouseButtonRelease) {
         QAbstractItemView *view = qobject_cast<QAbstractItemView *>(parent());
         if (view) {
             QModelIndex current = view->currentIndex();

@@ -15,6 +15,7 @@
 #include "accountfoldersview.h"
 
 #include <QApplication>
+#include <QFocusEvent>
 #include <QHBoxLayout>
 #include <QHeaderView>
 #include <QLabel>
@@ -38,6 +39,10 @@ AccountFoldersView::AccountFoldersView(QWidget *parent)
     // null, presumably because it adds it to a stacked widget after ctr which takes ownership as parent. The issue with this is that you *can't*
     // do anything relative to the parent in this construction setup because it is not known at time of construction.
 
+    // possibly more important, we can't pass the model(s) via the ctr which is particularly unpleasant, because we have to declare a public interface
+    // do set them after ctr. The issue with this is that the models should be immutable once set, which is most cleanly accomplished by passing the
+    // deps via the ctr, NOT a setter.
+
     _itemMenu = new QMenu(this);
     _itemMenu->setObjectName("folderOptionsMenu");
     _itemMenu->setAccessibleName(tr("Sync options menu"));
@@ -48,6 +53,7 @@ AccountFoldersView::AccountFoldersView(QWidget *parent)
 void AccountFoldersView::buildView()
 {
     QVBoxLayout *mainLayout = new QVBoxLayout();
+    //: This shows as 'Folder sync' or 'Space sync'
     QString titleString = tr("%1 sync").arg(CommonStrings::capSpace());
     QLabel *titleLabel = new QLabel(titleString, this);
     QFont f = titleLabel->font();
@@ -62,6 +68,7 @@ void AccountFoldersView::buildView()
     description->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     buttonLineLayout->addWidget(description, 0, Qt::AlignLeft);
 
+    //: This shows as 'Add new folder sync…' or 'Add new Space sync…'
     QString addSyncString = tr("Add new %1 sync…").arg(CommonStrings::space());
     _addFolderButton = new QPushButton(addSyncString, this);
     _addFolderButton->setObjectName("addFolderSyncButton");
@@ -73,23 +80,27 @@ void AccountFoldersView::buildView()
 
     _treeView = new QTreeView(this);
     _treeView->setObjectName("accountFoldersTreeView");
+    _treeView->setAccessibleName(tr("%1 list view").arg(CommonStrings::space()));
+    _treeView->setAccessibleDescription(tr("Navigate the %1 list using the up and down arrows").arg(CommonStrings::space()));
     _treeView->setFocusPolicy(Qt::StrongFocus);
     _treeView->installEventFilter(this);
 
     _treeView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     _treeView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     _treeView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+
     // indentation is "required" to show the expanders on folder when there are errors
     // I played around with this a lot and I think letting the default indent ride is the best choice, otherwise it can be hard
     // to trigger the expander consistently, among other things
     //_treeView->setIndentation(10);
+
     _treeView->setItemsExpandable(true);
     _treeView->setExpandsOnDoubleClick(true);
     _treeView->setSelectionMode(QAbstractItemView::SingleSelection);
     _treeView->setSelectionBehavior(QAbstractItemView::SelectRows);
     _treeView->setAllColumnsShowFocus(true);
 
-    // this should allow error items to paint fully just using the default impl
+    // this should allow error items to paint fully on multiple lines just using the default impl
     //_treeView->setWordWrap(true);
     // ha! no that does not work at all...google says it's been broken for at least 15 years.
     // nice job guys.
@@ -100,7 +111,7 @@ void AccountFoldersView::buildView()
     // this method of correcting the row selection color to match the app button highlight does not work when user has changed system settings (the color sticks
     // with the color that matched the system settings on creation of the view, which is bad. this color correction has been moved to the item delegates for now
     // because we can always grab the true current color on paint.
-    // TODO: #60 - we really need to implement full palettes for both light and dark mode. my rec would be to use a QStyle sub but will
+    // TODO: #60 - if we really need to implement full palettes for both light and dark mode, my rec would be to use a QStyle sub but will
     // make a decision when the time comes.
     QStyleOptionButton buttonStyle;
     QPalette treePalette = _treeView->palette();
@@ -131,20 +142,81 @@ void AccountFoldersView::buildView()
     setLayout(mainLayout);
 }
 
+bool AccountFoldersView::performBizarreSetupOnTreeView()
+{
+    if (_firstShowAfterCreation && _treeView->model()->rowCount(QModelIndex()) > 0) {
+        QModelIndex current = _treeView->currentIndex();
+        // this condition matches case when using selective sync, after adding first folder
+        // no I can't explain why this "helps" - just trial and error with this mess
+        if (current.isValid())
+            _treeView->selectionModel()->clear();
+
+        current = _treeView->model()->index(0, 1);
+        _treeView->setCurrentIndex(current);
+
+        // clear the selection no matter what! on first show there should be no item selected, else the automatic tree edit mode using
+        // tab into tree or direct mouse click doesn't work for the "default" selected item
+        _treeView->selectionModel()->clear();
+        _firstShowAfterCreation = false;
+        return true;
+    }
+    return false;
+}
+
+// this really belongs in a tree view controller...
 bool AccountFoldersView::eventFilter(QObject *obj, QEvent *ev)
 {
-    // we do not get clicked events here - no idea why. In addition, the treeview->clicked signal is sent so rarely it's fairly
-    // useless. I have no idea how this is supposed to work as all mouse events should be reaching the tree at least? Apparently not.
-    // We do get a InputMethodQueryEvent each time but I think this only relates to text based editor delegates? No idea why we get this
-    // for a non-text editor
-    // furthermore, we seem to get a focus event for *every* mouse triggered row selection, which strikes me as weird.
-    // Anyway this filter works for making sure the current item is always in edit mode when the tree gains focus, regardless of how it happens
     if (obj == _treeView) {
-        if (ev->type() == QEvent::FocusIn) {
-            QModelIndex current = _treeView->currentIndex();
+        QModelIndex current = _treeView->currentIndex();
+        // this has been the only way I've found so far to ensure the FocusIn behavior works correctly on first focus enter in the tree after show
+        // this should never be necessary but it's unclear why exactly first focus is so broken (using tab or direct mouse click)
+        if (ev->type() == QEvent::ShowToParent) {
+            return performBizarreSetupOnTreeView();
+        }
+
+        // from here out event handling is fairly comprehensible.
+
+        // this ensures that if a tree item is in edit mode, but is currently scrolled out of view, hitting edit trigger scrolls to the item
+        // before popping the button menu
+        if (ev->type() == QEvent::ShortcutOverride) {
             _treeView->scrollTo(current);
-            _treeView->edit(current);
-            // don't mark it as handled because we want the normal focus behavior in the tree to still work!
+            return true;
+        }
+
+        // if I don't include showToParent in this, direct clicking the selected item on first show is fubar - menu pops but in a very strange location
+        if (ev->type() == QEvent::FocusIn) {
+            QFocusEvent *focus = dynamic_cast<QFocusEvent *>(ev);
+            if (!focus)
+                return false;
+
+            if (focus->reason() == Qt::TabFocusReason) {
+                // cover case where user is tabbing into the tree when there is no selection yet
+                if (!current.isValid()) {
+                    current = _treeView->model()->index(0, 1);
+                    _treeView->setCurrentIndex(current);
+                }
+                _treeView->scrollTo(current);
+                if (current.flags() & Qt::ItemIsEditable)
+                    _treeView->edit(current);
+                return true;
+            }
+            if (focus->reason() == Qt::MouseFocusReason) {
+                if (current.flags() & Qt::ItemIsEditable) {
+                    _treeView->edit(current);
+                    return true;
+                } else {
+                    // this helps ensure no stray editor shows when clicking on an error row
+                    _treeView->edit(QModelIndex());
+                }
+                return false;
+            }
+            // this happens if you return the the client after switching to a different app, and the tree was focused before you left
+            if (focus->reason() == Qt::ActiveWindowFocusReason) {
+                _treeView->scrollTo(current);
+                if (current.flags() & Qt::ItemIsEditable)
+                    _treeView->edit(current);
+                return true;
+            }
         }
     }
     return false;
@@ -169,7 +241,7 @@ void AccountFoldersView::setItemModels(QStandardItemModel *model, QItemSelection
     header->setStretchLastSection(false);
     header->setSectionResizeMode(0, QHeaderView::Stretch);
     // ResizeToContents is required to allow the button delegate size hint to work - else it defaults to 100px wide regardless
-    // of other settings.
+    // of other settings. On windows the button is much wider, even with this setting.
     header->setSectionResizeMode(1, QHeaderView::ResizeToContents);
 }
 
@@ -199,8 +271,8 @@ void AccountFoldersView::refreshMenu()
 
 void AccountFoldersView::popItemMenu(const QPoint &pos)
 {
-    // only pop the menu on folder items. TODO: work out a secondary menu to allow copy of any sync error(s)
-    // shown in the child items
+    // only pop the menu on folder items. TODO: possibly work out a secondary menu to allow copy of any sync error(s)
+    // shown in the child items. the old folder list had no copy function that I know of so I see this as a nice to have, not a must
     if (!_treeView->currentIndex().parent().isValid())
         _itemMenu->exec(_treeView->viewport()->mapToGlobal(pos));
 }

@@ -56,7 +56,7 @@ private Q_SLOTS:
         QTest::newRow("Vfs::Off") << Vfs::Off << false;
 
         if (VfsPluginManager::instance().isVfsPluginAvailable(Vfs::WindowsCfApi)) {
-            // QTest::newRow("Vfs::WindowsCfApi dehydrated") << Vfs::WindowsCfApi << true;
+            QTest::newRow("Vfs::WindowsCfApi dehydrated") << Vfs::WindowsCfApi << true;
 
             // TODO: the hydrated version will fail due to an issue in the winvfs plugin, so leave it disabled for now.
             // QTest::newRow("Vfs::WindowsCfApi hydrated") << Vfs::WindowsCfApi << false;
@@ -130,7 +130,7 @@ private Q_SLOTS:
         QScopedValueRollback<std::chrono::seconds> setHttpTimeout(AbstractNetworkJob::httpTimeout, errorKind == Timeout ? 1s : 10000s);
 
         ItemCompletedSpy completeSpy(fakeFolder);
-        QSignalSpy errorSpy(&fakeFolder.syncEngine(), &SyncEngine::syncError);
+        QSignalSpy errorSpy(fakeFolder.syncEngine(), &SyncEngine::syncError);
         QCOMPARE(fakeFolder.applyLocalModificationsAndSync(), syncSucceeds);
 
         // The folder B should not have been sync'ed (and in particular not removed)

@@ -138,7 +138,7 @@ QString FolderItem::statusAsString() const
     case SyncResult::SyncAbortRequested:
         return {};
     case SyncResult::Success:
-        return QString("Synced");
+        return tr("Synced");
     case SyncResult::Unavailable:
         return tr("Unavailable: the space is no longer available on the server");
     case SyncResult::Problem:
@@ -203,6 +203,11 @@ QVariant FolderItem::data(int role) const
     switch (role) {
     case Qt::DisplayRole:
         return _folder->displayName();
+    case Qt::AccessibleTextRole: {
+        //: Accessible text, read out by a screen reader.
+        //~ The first argument is the displayed name of the folder.
+        return tr("%1, sync status: %2").arg(_folder->displayName(), _statusString);
+    }
     case Qt::DecorationRole:
         return _image;
     case FolderItemRoles::StatusIconRole:

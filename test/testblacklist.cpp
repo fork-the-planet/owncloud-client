@@ -14,7 +14,7 @@ using namespace OCC;
 SyncJournalFileRecord journalRecord(FakeFolder &folder, const QByteArray &path)
 {
     SyncJournalFileRecord rec;
-    folder.syncJournal().getFileRecord(path, &rec);
+    folder.syncJournal()->getFileRecord(path, &rec);
     return rec;
 }
 
@@ -31,7 +31,7 @@ private Q_SLOTS:
         QTest::newRow("Vfs::Off") << Vfs::Off << false;
 
         if (VfsPluginManager::instance().isVfsPluginAvailable(Vfs::WindowsCfApi)) {
-            // QTest::newRow("Vfs::WindowsCfApi dehydrated") << Vfs::WindowsCfApi << true;
+            QTest::newRow("Vfs::WindowsCfApi dehydrated") << Vfs::WindowsCfApi << true;
 
             // TODO: the hydrated version will fail due to an issue in the winvfs plugin, so leave it disabled for now.
             // QTest::newRow("Vfs::WindowsCfApi hydrated") << Vfs::WindowsCfApi << false;
@@ -98,7 +98,7 @@ private Q_SLOTS:
             QCOMPARE(it->_status, SyncFileItem::NormalError); // initial error visible
             QCOMPARE(it->instruction(), CSYNC_INSTRUCTION_NEW);
 
-            auto entry = fakeFolder.syncJournal().errorBlacklistEntry(testFileName);
+            auto entry = fakeFolder.syncJournal()->errorBlacklistEntry(testFileName);
             QVERIFY(entry.isValid());
             QCOMPARE(entry._errorCategory, SyncJournalErrorBlacklistRecord::Category::Normal);
             QCOMPARE(entry._retryCount, 1);
@@ -120,7 +120,7 @@ private Q_SLOTS:
             QCOMPARE(it->_status, SyncFileItem::BlacklistedError);
             QCOMPARE(it->instruction(), CSYNC_INSTRUCTION_IGNORE); // no retry happened!
 
-            auto entry = fakeFolder.syncJournal().errorBlacklistEntry(testFileName);
+            auto entry = fakeFolder.syncJournal()->errorBlacklistEntry(testFileName);
             QVERIFY(entry.isValid());
             QCOMPARE(entry._errorCategory, SyncJournalErrorBlacklistRecord::Category::Normal);
             QCOMPARE(entry._retryCount, 1);
@@ -135,10 +135,10 @@ private Q_SLOTS:
 
         // Let's expire the blacklist entry to verify it gets retried
         {
-            auto entry = fakeFolder.syncJournal().errorBlacklistEntry(testFileName);
+            auto entry = fakeFolder.syncJournal()->errorBlacklistEntry(testFileName);
             entry._ignoreDuration = 1;
             entry._lastTryTime -= 1;
-            fakeFolder.syncJournal().setErrorBlacklistEntry(entry);
+            fakeFolder.syncJournal()->setErrorBlacklistEntry(entry);
         }
         QVERIFY(!fakeFolder.applyLocalModificationsAndSync());
         {
@@ -147,7 +147,7 @@ private Q_SLOTS:
             QCOMPARE(it->_status, SyncFileItem::BlacklistedError); // blacklisted as it's just a retry
             QCOMPARE(it->instruction(), CSYNC_INSTRUCTION_NEW); // retry!
 
-            auto entry = fakeFolder.syncJournal().errorBlacklistEntry(testFileName);
+            auto entry = fakeFolder.syncJournal()->errorBlacklistEntry(testFileName);
             QVERIFY(entry.isValid());
             QCOMPARE(entry._errorCategory, SyncJournalErrorBlacklistRecord::Category::Normal);
             QCOMPARE(entry._retryCount, 2);
@@ -173,7 +173,7 @@ private Q_SLOTS:
             QCOMPARE(it->_status, SyncFileItem::BlacklistedError);
             QCOMPARE(it->instruction(), CSYNC_INSTRUCTION_NEW); // retry!
 
-            auto entry = fakeFolder.syncJournal().errorBlacklistEntry(testFileName);
+            auto entry = fakeFolder.syncJournal()->errorBlacklistEntry(testFileName);
             QVERIFY(entry.isValid());
             QCOMPARE(entry._errorCategory, SyncJournalErrorBlacklistRecord::Category::Normal);
             QCOMPARE(entry._retryCount, 3);
@@ -189,10 +189,10 @@ private Q_SLOTS:
         // When the error goes away and the item is retried, the sync succeeds
         fakeFolder.serverErrorPaths().clear();
         {
-            auto entry = fakeFolder.syncJournal().errorBlacklistEntry(testFileName);
+            auto entry = fakeFolder.syncJournal()->errorBlacklistEntry(testFileName);
             entry._ignoreDuration = 1;
             entry._lastTryTime -= 1;
-            fakeFolder.syncJournal().setErrorBlacklistEntry(entry);
+            fakeFolder.syncJournal()->setErrorBlacklistEntry(entry);
         }
         QVERIFY(fakeFolder.applyLocalModificationsAndSync());
         {
@@ -201,7 +201,7 @@ private Q_SLOTS:
             QCOMPARE(it->_status, SyncFileItem::Success);
             QCOMPARE(it->instruction(), CSYNC_INSTRUCTION_NEW);
 
-            auto entry = fakeFolder.syncJournal().errorBlacklistEntry(testFileName);
+            auto entry = fakeFolder.syncJournal()->errorBlacklistEntry(testFileName);
             QVERIFY(!entry.isValid());
             QCOMPARE(counter, 4);
 
